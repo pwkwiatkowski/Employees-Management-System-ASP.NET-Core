@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
+@model IEnumerable<ProjektZaliczeniowy.Models.Employee2>
+
+@{
+    ViewData["Title"] = _localizer["Employees list"];
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">@_localizer["Create New"]</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LoginID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HireDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoginID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HireDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BusinessEntityID">@_localizer["Edit"]</a> |
+                <a asp-action="Details" asp-route-id="@item.BusinessEntityID">@_localizer["Details"]</a> |
+                <a asp-action="Delete" asp-route-id="@item.BusinessEntityID">@_localizer["Delete"]</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
+@*int bo id.Value w kontrolerze to int*@
+@model int
+
+@{
+    ViewBag.Title = @_localizer["Error 404"];
+}
+
+
+<div class="alert alert-danger w-75">
+    <h4>@_localizer["Error 404: Page not found"] </h4>
+    <hr / />
+    <h5>
+        @_localizer["The employee with ID ="] @Model @_localizer["was not found"]
+    </h5>
+</div>
+<a asp-action="index" asp-controller="employees" class="btn btn-outline-dark">
+    @_localizer["Go back to the home page"]
+</a>

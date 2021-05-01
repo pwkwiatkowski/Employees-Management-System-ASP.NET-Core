@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
+
+@{
+    ViewBag.Title = "Error";
+}
+
+
+<h1>@ViewBag.ErrorMessage</h1>
+
+<a asp-action="index" asp-controller="Employees">
+    @_localizer["Redirect to main page"]
+</a>
